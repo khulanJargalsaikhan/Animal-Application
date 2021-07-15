@@ -4,7 +4,9 @@ import java.util.Scanner;
 public class AnimalApp {
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
-        ArrayList<Animal> animalArrayList = new ArrayList<>();
+        ArrayList<ArrayList> animalArrayList = new ArrayList<>();
+        ArrayList<Fish> fishArrayList = new ArrayList<>();
+        ArrayList<Turtle> turtleArrayList = new ArrayList<>();
         int count = 0;
 
         do {
@@ -19,8 +21,8 @@ public class AnimalApp {
             fish.setDescription(input.nextLine());
             System.out.println();
 
-            //adding a fish object to the animalArrayList
-            animalArrayList.add(fish);
+            //adding a fish object to the fishArrayList
+            fishArrayList.add(fish);
 
             // creating turtle object
             Turtle turtle = new Turtle();
@@ -32,15 +34,24 @@ public class AnimalApp {
             turtle.setDescription(input.nextLine());
             System.out.println();
 
-            //adding a turtle object to the animalArrayList
-            animalArrayList.add(turtle);
+            //adding a turtle object to the turtleArrayList
+            turtleArrayList.add(turtle);
         } while (count < 2);
 
+        animalArrayList.add(fishArrayList);
+        animalArrayList.add(turtleArrayList);
+
+        //displaying fishArrayList
+        for ( Fish fish : fishArrayList)
+            System.out.println(fish.getPet());
+
+        //displaying turtleArrayList
+        for ( Turtle turtle : turtleArrayList)
+            System.out.println(turtle.getPet());
 
         //displaying animalArrayList
-        for ( Animal animal : animalArrayList)
-            System.out.println(animal.getPet());
-
+        for (int i=0; i< animalArrayList.size(); i++)
+            System.out.println(animalArrayList.get(i));
 
 
 
